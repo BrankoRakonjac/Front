@@ -15,8 +15,9 @@ const menuItems = [
   new MainMenuItem("About us","/page/about-us/"),
   new MainMenuItem("Contact","/contact/"),
   new MainMenuItem("Log in","/user/login/"),
-
 ]
+
+
 
 ReactDOM.render(
   <React.StrictMode>
