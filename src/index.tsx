@@ -12,7 +12,7 @@ import { MainMenu ,MainMenuItem } from './components/MainMenu/MainMenu';
 import { Route, HashRouter} from 'react-router-dom';
 import Switch from 'react-bootstrap/esm/Switch';
 import { ContactPage } from './components/ContactPage/ContactPage';
-import { UserLoginPage } from './components/UserLoginPage/UserLoginPage';
+import  UserLoginPage  from './components/UserLoginPage/UserLoginPage';
 import CategoryPage from './components/CategoryPage/CategoryPage';
 const menuItems = [
   new MainMenuItem("Home", "/"),
