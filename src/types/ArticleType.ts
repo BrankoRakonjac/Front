@@ -1,5 +1,5 @@
 export default class ArticleType{
-    categoryId?: number;
+    articleId?: number;
     name?: string;
     excerpt?: string;
     description?: string;

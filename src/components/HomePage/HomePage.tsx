@@ -39,7 +39,7 @@ class HomePage extends React.Component {
   }
 
   private getCategories(){
-    api('api/category' , 'get' , {})
+    api('api/category?filter=parentCategoryId||$isnull' , 'get' , {})
     .then((res: ApiResponse) => {
       if(res.status === "error" || res.status === "login"){
         this.setLogginState(false);
@@ -90,7 +90,7 @@ class HomePage extends React.Component {
         <Card>
               <Card.Body>
                   <Card.Title>
-                      <FontAwesomeIcon icon={ faListAlt}/> top level categories 
+                      <FontAwesomeIcon icon={ faListAlt}/> Top level categories 
                   </Card.Title>
                     <Row>
                       {this.state.categories?.map(this.singleCategory)}
