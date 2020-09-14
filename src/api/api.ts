@@ -16,17 +16,12 @@ export default function api(
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': getToken(role),
-            },
-        };
+            },};
 
-        axios(requestData)
-        .then(res => responseHandler(res, resolve))
-        .catch(async err => {
-            if (err.response.status === 401) {
-                const newToken = await refreshToken(role);
+        axios(requestData) .then(res => responseHandler(res, resolve)).catch(async err => {
+            if (err.response.status === 401) { const newToken = await refreshToken(role);
     
-                if (!newToken) {
-                    const response: ApiResponse = {
+                if (!newToken) { const response: ApiResponse = {
                         status: 'login',
                         data: null,
                     };
@@ -35,10 +30,8 @@ export default function api(
                 }
     
                 saveToken(role, newToken);
-    
-                requestData.headers['Authorization'] = getToken(role);
-    
-                return await repeatRequest(requestData, resolve);
+                     requestData.headers['Authorization'] = getToken(role);
+                    return await repeatRequest(requestData, resolve);
             }
 
             const response: ApiResponse = {
@@ -47,9 +40,7 @@ export default function api(
             };
 
             resolve(response);
-        });
-    });
-}
+        });});}
 
 export function apiFile(
     path: string,
@@ -69,29 +60,20 @@ export function apiFile(
             headers: {
                 'Content-Type': 'multipart/form-data',
                 'Authorization': getToken(role),
-            },
-        };
+            }, };
 
-        axios(requestData)
-        .then(res => responseHandler(res, resolve))
-        .catch(async err => {
-            if (err.response.status === 401) {
-                const newToken = await refreshToken(role);
+        axios(requestData).then(res => responseHandler(res, resolve)).catch(async err => {
+            if (err.response.status === 401) {const newToken = await refreshToken(role);
     
-                if (!newToken) {
-                    const response: ApiResponse = {
+                if (!newToken) {const response: ApiResponse = {
                         status: 'login',
                         data: null,
                     };
-            
-                    return resolve(response);
+            return resolve(response);
                 }
-    
-                saveToken(role, newToken);
-    
-                requestData.headers['Authorization'] = getToken(role);
-    
-                return await repeatRequest(requestData, resolve);
+                 saveToken(role, newToken);
+                 requestData.headers['Authorization'] = getToken(role);
+                    return await repeatRequest(requestData, resolve);
             }
 
             const response: ApiResponse = {

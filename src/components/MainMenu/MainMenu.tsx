@@ -1,66 +1,60 @@
 import React from 'react';
-import { Nav, Container } from 'react-bootstrap';
-import {  Link, HashRouter } from 'react-router-dom';
+import { Nav } from 'react-bootstrap';
+import { HashRouter, Link } from 'react-router-dom';
 import Cart from '../Cart/Cart';
 
-export class MainMenuItem{
+export class MainMenuItem {
     text: string = '';
     link: string = '#';
 
-    constructor(text: string, link: string){
+    constructor(text: string, link: string) {
         this.text = text;
         this.link = link;
     }
 }
 
-interface MainMenuProperties{
+interface MainMenuProperties {
+    items: MainMenuItem[];
+    showCart?: boolean;
+}
+
+interface MainMenuState {
     items: MainMenuItem[];
 }
 
-interface MainMenuState{
-    items: MainMenuItem[];
-}
-
-export class MainMenu extends React.Component<MainMenuProperties>{
+export class MainMenu extends React.Component<MainMenuProperties> {
     state: MainMenuState;
 
-    constructor(props: Readonly<MainMenuProperties>){
+    constructor(props: Readonly<MainMenuProperties>) {
         super(props);
 
         this.state = {
             items: props.items,
-
         };
-
-        
     }
 
     public setItems(items: MainMenuItem[]) {
         this.setState({
-            items:items,
-    })
-}
-    render(){
-        return(
-            <Container>
+            items: items,
+        });
+    }
+
+    render() {
+        return (
             <Nav variant="tabs">
                 <HashRouter>
-                {this.state.items.map(this.makeNavLink)}  
-                <Cart />
-                </HashRouter>                
+                    { this.state.items.map(this.makeNavLink) }
+                    { this.props.showCart ? <Cart /> : '' }
+                </HashRouter>
             </Nav>
-            </Container>
         );
     }
 
-    private makeNavLink(item: MainMenuItem){
-        return(
-            <Link to={item.link} className="nav-link">
-                { item.text}
+    private makeNavLink(item: MainMenuItem) {
+        return (
+            <Link to={ item.link } className="nav-link" key={ item.text }>
+                { item.text }
             </Link>
-            
         );
     }
-
-
 }

@@ -32,7 +32,7 @@ export default class Cart extends React.Component {
         window.addEventListener("cart.update", () => this.updateCart);
     }
 
-    componentWillUnmount() {
+    componentDidlUnmount() {
         window.removeEventListener("cart.update", () => this.updateCart);
     }
 

@@ -7,6 +7,7 @@ import api, { ApiResponse } from '../../api/api';
 import ArticleType from '../../types/ArticleType';
 import { Redirect, Link } from 'react-router-dom';
 import SimgleArticlePreview from '../SingleArticlePreview/SingleAtriclePreview';
+import RoledMainMenu from '../RoledMainMenu/RoledMainMenu';
 
 interface CategoryPageProperties {
     match: {
@@ -129,7 +130,7 @@ export default class CategoryPage extends React.Component<CategoryPageProperties
 
         return (
             <Container>
-
+                <RoledMainMenu role='user'/>
                 <Card>
                     <Card.Body>
                         <Card.Title>
