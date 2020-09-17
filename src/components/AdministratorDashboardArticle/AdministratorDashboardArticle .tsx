@@ -382,7 +382,7 @@ class AdministratorDashboardArticle extends React.Component {
                                             <Link to={ "/administrator/dashboard/photo/" + article.articleId }
                                                   className="btn btn-sm btn-info mr-3">
                                                 <FontAwesomeIcon icon={ faImages } /> Photos
-                                            </Link>
+                                            </Link> 
 
                                             <Button variant="info" size="sm"
                                                 onClick={ () => this.showEditModal(article) }>

@@ -218,6 +218,7 @@ class AdministratorDashboardCategory extends React.Component {
                             <Form.Label htmlFor="imagePath">Image URL</Form.Label>
                             <Form.Control id="imagePath" type="url" value={ this.state.addModal.imagePath }
                                 onChange={ (e) => this.setAddModalStringFieldState('imagePath', e.target.value) } />
+                                
                         </Form.Group>
                         <Form.Group>
                             <Form.Label htmlFor="parentCategoryId">Parent category</Form.Label>
@@ -252,11 +253,20 @@ class AdministratorDashboardCategory extends React.Component {
                             <Form.Control id="name" type="text" value={ this.state.editModal.name }
                                 onChange={ (e) => this.setEditModalStringFieldState('name', e.target.value) } />
                         </Form.Group>
+
+                        {/* <Form.Group>
+                            <Form.Label htmlFor="add-photo">Article photo</Form.Label>
+                            <Form.File id="add-photo" />
+                        </Form.Group> */}
+
                         <Form.Group>
                             <Form.Label htmlFor="imagePath">Image URL</Form.Label>
                             <Form.Control id="imagePath" type="url" value={ this.state.editModal.imagePath }
                                 onChange={ (e) => this.setEditModalStringFieldState('imagePath', e.target.value) } />
                         </Form.Group>
+
+
+
                         <Form.Group>
                             <Form.Label htmlFor="parentCategoryId">Parent category</Form.Label>
                             <Form.Control id="parentCategoryId" as="select" value={ this.state.editModal.parentCategoryId?.toString() }

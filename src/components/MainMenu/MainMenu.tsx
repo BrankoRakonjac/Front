@@ -39,14 +39,19 @@ export class MainMenu extends React.Component<MainMenuProperties> {
         });
     }
 
+
+
     render() {
         return (
-            <Nav variant="tabs">
-                <HashRouter>
+
+            <Nav variant="tabs" >
+                <HashRouter >
                     { this.state.items.map(this.makeNavLink) }
                     { this.props.showCart ? <Cart /> : '' }
                 </HashRouter>
+                
             </Nav>
+            
         );
     }
 

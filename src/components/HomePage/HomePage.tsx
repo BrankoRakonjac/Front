@@ -83,7 +83,7 @@ class HomePage extends React.Component {
                 <Card>
                     <Card.Body>
                         <Card.Title>
-                            <FontAwesomeIcon icon={ faListAlt } /> Top level categories
+                            <p className="text-center"> <FontAwesomeIcon icon={ faListAlt } /> Top level categories</p>
                         </Card.Title>
 
                         <Row>
@@ -95,7 +95,7 @@ class HomePage extends React.Component {
         );
     }
 
-    private singleCategory(category: CategoryType) {
+    private singleCategory(category: CategoryType) { 
         return (
             <Col lg="3" md="4" sm="6" xs="12" key={ category.categoryId }>
                 <Card className="mb-3">

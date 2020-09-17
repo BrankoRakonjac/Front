@@ -18,7 +18,7 @@ export default function api(
                 'Authorization': getToken(role),
             },};
 
-        axios(requestData) .then(res => responseHandler(res, resolve)).catch(async err => {
+        axios(requestData).then(res => responseHandler(res, resolve)).catch(async err => {
             if (err.response.status === 401) { const newToken = await refreshToken(role);
     
                 if (!newToken) { const response: ApiResponse = {
